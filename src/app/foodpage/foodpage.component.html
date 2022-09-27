@@ -1,0 +1,46 @@
+<div class="container-fluid">
+  <div class="app-banner">
+    <img [src]="food.imageUrl" alt="{{ food.name }}" class="food__image" />
+  </div>
+  <div class="deatils">
+    <div class="header">
+      <span class="name">
+        {{ food.name }}
+      </span>
+      <span class="favourite" *ngIf="food.favorite"> Favourite 💣 </span>
+      <star-rating
+        [value]="food.star"
+        [totalstars]="5"
+        checkedcolor="red"
+        uncheckedcolor="black"
+        size="24px"
+        [readonly]="false"
+      ></star-rating>
+    </div>
+    <div class="origins">
+      <span class="origins-item" *ngFor="let origin of food.origins">
+        {{ origin }}
+      </span>
+    </div>
+    <div class="tag">
+      <app-tags [foodPageTags]="food.tags"></app-tags>
+    </div>
+
+    <div class="cook-time">
+      Time to cook in <strong> {{ food.cookTime }} minutes </strong>
+    </div>
+
+    <div class="price">
+      <span class="currency">Price</span> {{ food.price | currency }}
+    </div>
+
+    <div class="btn-container">
+      <button
+        (click)="addToCart()"
+        class="mt-4 d-block w-100 btn btn-outline-primary"
+      >
+        Add To Cart
+      </button>
+    </div>
+  </div>
+</div>

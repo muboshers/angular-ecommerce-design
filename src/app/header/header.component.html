@@ -1,0 +1,17 @@
+<header>
+  <div class="container-fluid">
+    <a href="#" routerLink="/" class="nav-logo">TC @ FOOD Corner!</a>
+    <nav>
+      <ul>
+        <li>
+          <a href="#" routerLink="/cart-page"
+            >Cart
+            <span *ngIf="cartItem.items.length > 0">{{
+              cartItem.items.length
+            }}</span></a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,46 @@
+<div class="product-container">
+  <app-search></app-search>
+  <app-tags></app-tags>
+  <ul *ngIf="products.length > 0">
+    <li *ngFor="let food of products">
+      <a href="#" routerLink="/food/{{ food.id }}">
+        <img src="{{ food.imageUrl }}" alt="food" />
+      </a>
+      <div class="content">
+        <div class="name">
+          {{ food.name }}
+          <span class="favourite" *ngIf="food.favorite"> Favourite ❤ </span>
+        </div>
+
+        <star-rating
+          [value]="food.star"
+          [totalstars]="5"
+          checkedcolor="red"
+          uncheckedcolor="black"
+          size="24px"
+          [readonly]="false"
+        ></star-rating>
+        <div class="product-item__footer">
+          <div class="originals">
+            <span class="origin-item" *ngFor="let origin of food.origins">
+              {{ origin | titlecase }}
+            </span>
+          </div>
+          <div class="cook-time">
+            <span class="time">⏲</span>
+            <span>{{ food.cookTime }}</span>
+          </div>
+          <div class="currency">
+            {{ food.price | currency }}
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <div class="not-found-banner" *ngIf="products.length == 0">
+    <img
+      src="https://s3.envato.com/files/369417796/19-Page-not-found.png"
+      alt="logo"
+    />
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="tag-container" *ngIf="tags">
+  <span (click)="searchByTag(tag.name)" *ngFor="let tag of tags"
+    >{{ tag.name }} ({{ tag.count }})
+  </span>
+</div>
+
+<div class="tag-container mt-0" *ngIf="foodPageTags">
+  <span
+    class="ml-0"
+    *ngFor="let tag of foodPageTags"
+    routerLink="/tag/{{ tag }}"
+  >
+    {{ tag }}
+  </span>
+</div>

@@ -1,0 +1,11 @@
+<div class="search-container">
+  <div class="search-form">
+    <input
+      [(ngModel)]="searchItem"
+      type="text"
+      placeholder="enter search food by name"
+      (change)="searchFood()"
+    />
+    <button (click)="searchFood()" class="search-btn">Search</button>
+  </div>
+</div>

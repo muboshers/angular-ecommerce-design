@@ -1,0 +1,39 @@
+<div class="mt-5">
+  <div class="food-details" *ngIf="cartItem.items.length > 0">
+    <ul>
+      <li *ngFor="let cart of cartItem.items">
+        <div class="banner">
+          <img [src]="cart.food.imageUrl" [alt]="cart.food.name" />
+        </div>
+
+        <div class="content">
+          <h1>{{ cart.food.name }}</h1>
+          <button class="btn btn-outline-danger" (click)="removeFromCart(cart)">
+            Remove From Cart
+          </button>
+        </div>
+      </li>
+    </ul>
+    <div class="checkout">
+      <div class="food-count">Product {{ cartItem.items.length }}</div>
+      <div class="food-totalPrice">
+        Total Price {{ cartItem.totalPrice | currency }}
+      </div>
+
+      <div class="btn btn-danger mt-3">Checkout</div>
+    </div>
+  </div>
+  <div
+    *ngIf="cartItem.items.length === 0"
+    class="d-flex justify-content-center align-items-center"
+  >
+    <div class="col-md-4 d-flex justify-content-center flex-column">
+      <img
+        class="img-fluid"
+        src="https://images.prom.ua/1860635663_w640_h640_naklejka-na-holodilnik.jpg"
+      />
+
+      <button class="btn btn-primary" routerLink="/">Go To Home</button>
+    </div>
+  </div>
+</div>
